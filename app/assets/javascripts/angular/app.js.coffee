@@ -1,0 +1,1 @@
+window.SearchApp = angular.module 'SearchApp', ['ng-rails-csrf']

@@ -1,0 +1,33 @@
+div
+  b Items found:
+  | {{total_count}}
+
+  div
+    .col-md-3 ng-repeat="item in results"
+      .panel.panel-default style="margin: 3px;"
+        .panel-heading
+          b
+            | {{item.full_name}}
+        .panel-body
+          .col-md-5
+            div
+              span
+                b
+                  ' Str:
+                | {{item.str}}
+            div
+              span
+                b
+                  ' Dex:
+                | {{item.dex}}
+            div
+              span
+                b
+                  ' Int:
+                | {{item.int}}
+          .col-md-7
+            div ng-repeat="mod in item.mods"
+              span
+                b
+                  ' {{mod.name}}
+                | {{mod.value}}

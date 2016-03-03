@@ -13,6 +13,8 @@
 //= require jquery
 //= require bootstrap
 //= require angular
+//= require angular-rails-templates
+//= require angularjs-slider
 //= require ng-rails-csrf
 //= require underscore
 //= require_tree .

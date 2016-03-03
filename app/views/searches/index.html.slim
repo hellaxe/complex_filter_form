@@ -1,0 +1,6 @@
+div ng-controller="SearchController"
+  = render 'filter'
+  div ng-if="fromServer"
+    = render 'server_results'
+  div ng-if="!fromServer"
+    = render 'client_results'

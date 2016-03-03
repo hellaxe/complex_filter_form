@@ -1,0 +1,17 @@
+div
+  b Items found:
+  = @items.total_count
+
+  table.table
+    thead
+      th Full Name
+      th Str
+      th Dex
+      th Int
+      tbody
+        - @items.each do |item|
+          tr
+            td = item.full_name.titleize
+            td = item.str
+            td = item.dex
+            td = item.int

@@ -1,0 +1,37 @@
+div
+  b Items found:
+  = @items.total_count
+
+  div
+    - @items.each_slice(4) do |slice|
+      .row
+        - slice.each do |item|
+          .col-md-3
+            .panel.panel-default style="margin: 3px;" class="#{item_class(item)}"
+              .panel-heading
+                b = item.full_name.titleize
+              .panel-body
+                .col-md-5
+                  div
+                    span
+                      b
+                        ' Str:
+                      = item.str
+                  div
+                    span
+                      b
+                        ' Dex:
+                      = item.dex
+                  div
+                    span
+                      b
+                        ' Int:
+                      = item.int
+                .col-md-7
+                  - item.mods.each_slice(4) do |slice|
+                    - slice.each do |mod|
+                      div
+                        span
+                          b
+                            ' #{mod.name.titleize}
+                          = mod.value

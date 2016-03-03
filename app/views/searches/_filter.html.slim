@@ -1,0 +1,35 @@
+.well ng-init="filter = #{@form.to_angular}"
+  form.form-horizontal ng-submit="search()"
+    .row
+      .col-md-3
+        .form-group
+          label Name
+          input.form-control type="text" ng-model="filter.query"
+        .form-group
+          label Str
+          rzslider rz-slider-floor="settings.floor" rz-slider-ceil="settings.ceil" rz-slider-model="filter.min_str" rz-slider-high="filter.max_str"
+        .form-group
+          label Dex
+          rzslider rz-slider-floor="settings.floor" rz-slider-ceil="settings.ceil" rz-slider-model="filter.min_dex" rz-slider-high="filter.max_dex"
+        .form-group
+          label Int
+          rzslider rz-slider-floor="settings.floor" rz-slider-ceil="settings.ceil" rz-slider-model="filter.min_int" rz-slider-high="filter.max_int"
+      .col-md-3
+        b Mods:
+        div
+          a.btn.btn-success ng-click="addMod()"
+            i.fa.fa-plus
+            span Add
+
+        .mods
+          .mod-inputs.row ng-repeat="mod in filter.mods track by $index"
+            .col-md-5
+              select.form-control ng-model="mod.name" ng-required="true" ng-options="name for name in settings.mods"
+            .col-md-7
+              rzslider rz-slider-floor="settings.floor" rz-slider-ceil="settings.ceil" rz-slider-model="mod.min_value" rz-slider-high="mod.max_value"
+      .btn-group
+        a.btn.btn-success ng-class="{active: filter.view == 'calendar'}" ng-click='changeView("calendar")'
+          i.fa.fa-calendar
+        a.btn.btn-success ng-class="{active: filter.view == 'table'}" ng-click='changeView("table")'
+          i.fa.fa-table
+    input type='submit'

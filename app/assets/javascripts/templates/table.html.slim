@@ -1,0 +1,20 @@
+div
+  b Items found:
+  | {{total_count}}
+
+  table.table
+    thead
+      th Full Name
+      th Str
+      th Dex
+      th Int
+    tbody
+      tr ng-repeat="item in results"
+        td
+          | {{item.full_name}}
+        td
+          | {{item.str}}
+        td
+          | {{item.dex}}
+        td
+          | {{item.int}}
